@@ -1,0 +1,46 @@
+<md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Realtime Chat</md-card-title>
+    <md-card-subtitle>with Angular</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <md-grid-list cols="4" rowHeight="100px">
+
+      <md-grid-tile colspan="1" rowspan="1" [style.background]="tilesColorObj.userListHeader">
+        <h2>Connected Users</h2>
+      </md-grid-tile>
+
+      <md-grid-tile colspan="3" rowspan="1" [style.background]="tilesColorObj.userList">
+        <h2>Messages</h2>
+      </md-grid-tile>
+
+      <md-grid-tile colspan="1" rowspan="4" [style.background]="tilesColorObj.chatHeader">
+        <md-list>
+          <h3 md-subheader></h3>
+          <md-list-item style="cursor: pointer" id="userActive" (click)="showConvoWithUser(user)" *ngFor= "let user of usersList | async">
+            <md-icon md-list-avatar>account_circle</md-icon>
+            <h4 md-line><strong>@{{user.username}}</strong></h4>
+            <p md-line> {{user.name}} </p>
+          </md-list-item>
+        </md-list>
+
+      </md-grid-tile>
+      <md-grid-tile colspan="3" rowspan="4" [style.background]="tilesColorObj.chatContent">
+        <md-list style="width: 100%">
+          <h3 md-subheader></h3>
+          <md-list-item style="width: 70%" [ngClass]="{'currentUser': chat.senderUid == sessionUUId,'otherUser': chat.senderUid != sessionUUId}" *ngFor= "let chat of chatMessages">
+            <h4 md-line><strong>{{chat.message}}</strong></h4>
+            <p md-line> @{{chat.username}} </p>
+          </md-list-item><br> 
+        </md-list>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-card-content>
+<md-card-actions>
+  <md-input-container class="example-full-width" style="width: 90%;">
+<textarea md-input placeholder="Message" #message></textarea>
+</md-input-container>
+<button md-button type="submit" (click)="sendMessage(message.value)"><md-icon class="example-icon">send</md-icon></button>
+</md-card-actions>
+</md-card>

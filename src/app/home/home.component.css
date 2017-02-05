@@ -1,0 +1,40 @@
+.box {
+  float: left;
+  width: 200px;
+  height: 100px;
+  margin: 1em;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #9fa8c6;
+  cursor: pointer;
+}
+.box:hover {
+    border: 4px solid #fff;
+    width: 196px;
+    height: 96px;
+}
+.borderedBox {
+    border: 4px solid #000;
+    width: 196px;
+    height: 96px;
+}
+.example-card {
+  width: 85%;
+}
+
+.example-header-image {
+  background-image: url('https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/033/thumb/egghead-angular-material-course-sq.png?1460301246');
+  background-size: cover;
+}
+
+#userActive:hover, #userActive.focus {
+  color: red;
+}
+.currentUser {
+    border: 3px solid #473f90;
+   
+}
+
+.otherUser {
+    border: 3px solid #000000;
+}
